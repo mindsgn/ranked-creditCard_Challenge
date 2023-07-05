@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CardDetailsInterface } from "../interface/CardDetailsInterface";
 
 interface CreditCardInterface {
@@ -64,6 +64,8 @@ export const CreditCardProvider = ({ children }: { children: any }) => {
 
     setBannedCountries(filteredBannedCountries);
   };
+
+  useEffect(() => {}, [creditCardList, bannedCountries]);
 
   return (
     <CreditCardContext.Provider

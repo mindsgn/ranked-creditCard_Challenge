@@ -1,6 +1,6 @@
 export interface CardDetailsInterface {
   number?: string;
-  date?: string;
+  expiryDate?: string;
   cvc?: string;
   country?: string;
 }

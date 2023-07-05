@@ -25,8 +25,6 @@ export const CreditCardTable = () => {
           <Thead>
             <Tr>
               <Th>Credit Card Number</Th>
-              <Th>CVC</Th>
-              <Th>MM/YY</Th>
               <Th>Country</Th>
               <Th />
             </Tr>
@@ -36,8 +34,6 @@ export const CreditCardTable = () => {
               <Tbody>
                 <Tr>
                   <Td>{card.number}</Td>
-                  <Td isNumeric>{card.cvc}</Td>
-                  <Td>{card.date}</Td>
                   <Td>{card.country}</Td>
                   <Td
                     onClick={() => {
