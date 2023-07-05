@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { CardDetailsInterface } from "../interface/CardDetailsInterface";
 
 interface CreditCardInterface {
-  bannedCountries: string[];
-  creditCardList: CardDetailsInterface[];
+  bannedCountries: string[] | null;
+  creditCardList: CardDetailsInterface[] | null;
   addCard: (card: CardDetailsInterface) => void;
   removeCard: (number: string) => void;
   addCountry: (country: string) => void;
@@ -65,7 +65,22 @@ export const CreditCardProvider = ({ children }: { children: any }) => {
     setBannedCountries(filteredBannedCountries);
   };
 
-  useEffect(() => {}, [creditCardList, bannedCountries]);
+  useEffect(() => {
+    localStorage.setItem("cards", JSON.stringify(creditCardList));
+  }, [creditCardList]);
+
+  useEffect(() => {
+    localStorage.setItem("country", JSON.stringify(bannedCountries));
+  }, [bannedCountries]);
+
+  useEffect(() => {
+    const cards = localStorage.getItem("cards");
+    const country = localStorage.getItem("country");
+    console.log(cards, country);
+
+    if (cards) setCreditCardList(JSON.parse(cards));
+    if (country) setBannedCountries(JSON.parse(country));
+  }, []);
 
   return (
     <CreditCardContext.Provider

@@ -100,7 +100,7 @@ export const CreditCardForm = () => {
             }}
           />
         </FormControl>
-        <Button onClick={() => addNewCard()}>
+        <Button background={"green.100"} onClick={() => addNewCard()}>
           <Text>Add Card</Text>
         </Button>
       </Box>
