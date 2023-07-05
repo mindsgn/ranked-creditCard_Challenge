@@ -66,6 +66,7 @@ export const CreditCardProvider = ({ children }: { children: any }) => {
   };
 
   useEffect(() => {
+    console.log(creditCardList);
     localStorage.setItem("cards", JSON.stringify(creditCardList));
   }, [creditCardList]);
 

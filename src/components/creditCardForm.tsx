@@ -82,6 +82,7 @@ export const CreditCardForm = () => {
 
           <FormLabel paddingTop={10}>CVC</FormLabel>
           <DateInput
+            number={3}
             onChange={(cvc) => {
               setCardDetails({
                 ...cardDetails,
@@ -100,7 +101,11 @@ export const CreditCardForm = () => {
             }}
           />
         </FormControl>
-        <Button background={"green.100"} onClick={() => addNewCard()}>
+        <Button
+          marginTop={10}
+          background={"green.100"}
+          onClick={() => addNewCard()}
+        >
           <Text>Add Card</Text>
         </Button>
       </Box>

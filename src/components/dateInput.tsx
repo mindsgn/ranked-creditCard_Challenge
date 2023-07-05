@@ -2,9 +2,11 @@ import { HStack, PinInput, PinInputField } from "@chakra-ui/react";
 
 interface dateInputInterface {
   onChange: (date: string) => void;
+  number?: number;
 }
 
-export const DateInput = ({ onChange }: dateInputInterface) => {
+export const DateInput = ({ onChange, number = 4 }: dateInputInterface) => {
+  const pinInputs = Array.from({ length: number }, (_, index) => index + 1);
   return (
     <HStack>
       <PinInput
@@ -12,10 +14,9 @@ export const DateInput = ({ onChange }: dateInputInterface) => {
           onChange(value);
         }}
       >
-        <PinInputField />
-        <PinInputField />
-        <PinInputField />
-        <PinInputField />
+        {pinInputs.map((x) => {
+          return <PinInputField />;
+        })}
       </PinInput>
     </HStack>
   );
